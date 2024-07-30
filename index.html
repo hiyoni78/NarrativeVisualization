@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <script src="./d3.v7.js"></script>
+    <script src="./d3-annotation.min.js"></script>
+    <title>Final Project - Premier League Narrative</title>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <div class="slide" id="overview-slide">
+        <div id="context-overview" class="context-text">
+          <h2>Broad Overview: Total Goals per Month in the English Premier League</h2>
+          <p>
+            The English Premier League season is filled with exciting matches
+            and dramatic moments. One way to appreciate the intensity of the
+            competition is by looking at the total number of goals scored each
+            month. Let's dive into the data to see how goal-scoring trends
+            fluctuate throughout the season.
+          </p>
+          <h3>Key Observations</h3>
+          <p>
+            <strong>August - A Strong Start:</strong> The season kicks off with
+            a bang in August, with teams eager to set the tone for the months
+            ahead. This is often reflected in the high number of goals scored as
+            teams play with fresh energy and enthusiasm.
+          </p>
+          <p>
+            <strong>December - Festive Season of Goals:</strong> December
+            typically sees a flurry of matches due to the festive season, and
+            this is often accompanied by a surge in goals. Teams play multiple
+            matches in quick succession, leading to thrilling and high-scoring
+            encounters.
+          </p>
+          <p>
+            <strong>January to February - Mid-Season Challenges:</strong> The
+            winter months of January and February can be challenging. The
+            weather conditions and the physical toll of the season start to
+            impact performances, often resulting in a slight dip in the number
+            of goals scored.
+          </p>
+          <p>
+            <strong>March to May - The Final Push:</strong> As the season
+            approaches its climax from March to May, the intensity ramps up
+            again. Teams are fighting for titles, European spots, or battling to
+            avoid relegation. This urgency is reflected in the increasing number
+            of goals as teams give their all in the final stretch.
+          </p>
+          <h3>Conclusion</h3>
+          <p>
+            Analyzing the goal-scoring trends across the months provides a
+            fascinating insight into the dynamics of the Premier League season.
+            From the initial excitement to the mid-season grind and the final
+            push, each phase of the season presents its unique challenges and
+            moments of brilliance.
+          </p>
+        </div>
+        <div id="season-overview"></div>
+      </div>
+      <div class="slide" id="december-slide" style="display: none">
+        <div id="context-december" class="context-text">
+          <h2>Detailed Breakdown: December</h2>
+          <p>
+            December is one of the most action-packed months in the Premier
+            League. With multiple fixtures, it’s a time when teams can gain
+            significant momentum or face challenging setbacks. Let’s take a
+            closer look at the goals scored in each match throughout December.
+          </p>
+          <h3>High-Scoring Matches and Key Performances</h3>
+          <p>
+            <strong>Burnley's Dominance (2 Dec):</strong> Burnley's 5-0 victory
+            over Sheffield United stands out as the most dominant win in
+            December, showcasing their attacking prowess.
+          </p>
+          <p>
+            <strong>Goal Fest at Liverpool (3 Dec):</strong> The thrilling 4-3
+            victory for Liverpool over Fulham was the highest-scoring match,
+            featuring a total of 7 goals.
+          </p>
+          <p>
+            <strong>Fulham's Resurgence (6 Dec):</strong> Fulham's 5-0 win
+            against Nottingham Forest marked a significant turnaround, with
+            their attack firing on all cylinders.
+          </p>
+          <h3>Defensive Strengths and Weaknesses</h3>
+          <p>
+            <strong>Everton's Sturdy Defense (7 Dec):</strong> Everton managed a
+            clean sheet in their 3-0 win against Newcastle, highlighting their
+            defensive solidity.
+          </p>
+          <p>
+            <strong>Sheffield United's Struggles:</strong> Sheffield United
+            conceded 5 goals in their loss to Burnley and 4 goals to Liverpool,
+            indicating defensive vulnerabilities.
+          </p>
+          <h3>Upsets and Surprising Results</h3>
+          <p>
+            <strong>Bournemouth Shocks Manchester United (9 Dec):</strong>
+            Bournemouth's 3-0 away win against Manchester United was a
+            surprising result, showing their capability to upset bigger teams.
+          </p>
+          <p>
+            <strong>Aston Villa Topples Man City (6 Dec):</strong> Aston Villa's
+            1-0 victory over Manchester City was a notable upset, as they
+            managed to keep the defending champions at bay.
+          </p>
+          <h3>Performance Under Pressure</h3>
+          <p>
+            <strong>Late Drama in Arsenal vs. Wolves (2 Dec):</strong> Arsenal's
+            2-1 victory featured a decisive second-half performance, scoring
+            both goals after the break.
+          </p>
+          <p>
+            <strong>West Ham's Crucial Win (17 Dec):</strong> West Ham's 3-0 win
+            over Wolves provided a significant boost in their quest for better
+            standings, highlighting their resilience.
+          </p>
+          <h3>Trends and Patterns</h3>
+          <p>
+            <strong>Home Advantage:</strong> Home teams generally performed well
+            in December, with several matches ending in victories for the hosts,
+            like Wolves' 3-0 win over Everton (30 Dec) and Tottenham's 4-1 win
+            over Newcastle (10 Dec).
+          </p>
+          <p>
+            <strong>Busy Mid-Month:</strong> The middle of December (6-16 Dec)
+            was particularly busy, with multiple high-scoring games and
+            significant results that shaped the league standings.
+          </p>
+        </div>
+        <div id="december-breakdown"></div>
+      </div>
+      <div class="slide" id="conclusion-slide" style="display: none">
+        <div id="season-conclusion" class="context-text">
+          <h2>Season Conclusion and Key Insights</h2>
+          <p>
+            As the season draws to a close, the final matches bring dramatic
+            conclusions across the league. Teams fight for every point,
+            culminating in a climactic finish that decides the champions,
+            qualifies teams for Europe, and seals the fate of those facing
+            relegation.
+          </p>
+          <p>
+            Here, we take a look at the number of goals each team scored at home turf.
+          </p>
+        </div>
+      </div>
+      <a class="prev" onclick="changeSlide(-1)">❮</a>
+      <a class="next" onclick="changeSlide(1)">❯</a>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
