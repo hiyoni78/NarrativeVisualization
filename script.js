@@ -29,10 +29,8 @@ async function enclosed() {
     (d) => d.Date.getMonth()
   );
 
-  // Convert the monthData to an array of objects
   const monthDataArray = monthData.map(([month, goals]) => ({ month, goals }));
 
-  // Create the x and y scales
   const x = d3
     .scaleBand()
     .domain(monthDataArray.map((d) => d.month))
@@ -45,7 +43,6 @@ async function enclosed() {
     .nice()
     .range([height, 0]);
 
-  // Create the x axis
   svgOverview
     .append("g")
     .attr("transform", `translate(0,${height})`)
@@ -53,17 +50,14 @@ async function enclosed() {
       d3.axisBottom(x).tickFormat((d) => d3.timeFormat("%B")(new Date(2023, d)))
     );
 
-  // Create the y axis
   svgOverview.append("g").call(d3.axisLeft(y));
 
-  // Create the tooltip
   const tooltip = d3
     .select("body")
     .append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-  // Function to handle mouseover event
   function handleMouseOver(event, d) {
     tooltip.transition().duration(200).style("opacity", 0.9);
     tooltip
@@ -76,12 +70,10 @@ async function enclosed() {
       .style("top", event.pageY - 28 + "px");
   }
 
-  // Function to handle mouseout event
   function handleMouseOut() {
     tooltip.transition().duration(500).style("opacity", 0);
   }
 
-  // Bars for the overview chart with event listeners for interactivity
   svgOverview
     .selectAll(".bar")
     .data(monthDataArray)
@@ -126,7 +118,6 @@ async function enclosed() {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Create the x and y scales for December
     const xDecember = d3
       .scaleTime()
       .domain(d3.extent(decemberData, (d) => d.Date))
@@ -153,7 +144,6 @@ async function enclosed() {
 
     svgDecember.append("g").call(d3.axisLeft(yDecember));
 
-    // Create the tooltip for December
     const tooltipDecember = d3
       .select("body")
       .append("div")
@@ -177,9 +167,8 @@ async function enclosed() {
     }
 
     // Adding slight jitter to avoid overlapping points
-    const jitterWidth = 10; // Adjust the jitter width as needed
+    const jitterWidth = 10;
 
-    // Circles for the detailed breakdown chart with event listeners for interactivity
     svgDecember
       .selectAll(".dot")
       .data(decemberData)
@@ -205,9 +194,7 @@ async function enclosed() {
   // Call the function to create Scene 2
   createDecemberBreakdown();
 
-  // Function to create an interactive season summary
   function createInteractiveSeasonSummary() {
-    // Set up the SVG for interactive visualization
     const svgInteractive = d3
       .select("#season-conclusion")
       .append("svg")
@@ -216,15 +203,13 @@ async function enclosed() {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Example data: total goals by team
     const goalsByTeam = d3.rollups(
       data,
       (v) => d3.sum(v, (d) => Number(d["Full time home goals"])),
       (d) => d.HomeTeam
     );
-    goalsByTeam.sort((a, b) => b[1] - a[1]); // Sort by total goals for better visual presentation
+    goalsByTeam.sort((a, b) => b[1] - a[1]);
 
-    // Scales
     const x = d3
       .scaleBand()
       .domain(goalsByTeam.map((d) => d[0]))
@@ -236,7 +221,6 @@ async function enclosed() {
       .domain([0, d3.max(goalsByTeam, (d) => d[1])])
       .range([height, 0]);
 
-    // Axes
     svgInteractive
       .append("g")
       .attr("transform", `translate(0,${height})`)
@@ -249,7 +233,6 @@ async function enclosed() {
 
     svgInteractive.append("g").call(d3.axisLeft(y));
 
-    // Bars with tooltips and hover effects
     svgInteractive
       .selectAll(".bar")
       .data(goalsByTeam)
@@ -274,7 +257,6 @@ async function enclosed() {
         tooltip.style("opacity", 0);
       });
 
-    // Tooltip
     const tooltip = d3
       .select("body")
       .append("div")
@@ -297,7 +279,6 @@ async function enclosed() {
 }
 enclosed();
 
-// script.js, after the D3 code
 let slideIndex = 1;
 showSlides(slideIndex);
 
